@@ -2,6 +2,12 @@
     "composer/package-versions-deprecated": {
         "version": "1.11.99.4"
     },
+    "composer/semver": {
+        "version": "3.2.5"
+    },
+    "composer/xdebug-handler": {
+        "version": "2.0.2"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -82,6 +88,18 @@
     "doctrine/sql-formatter": {
         "version": "1.1.1"
     },
+    "friendsofphp/php-cs-fixer": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "be2103eb4a20942e28a6dd87736669b757132435"
+        },
+        "files": [
+            ".php-cs-fixer.dist.php"
+        ]
+    },
     "friendsofphp/proxy-manager-lts": {
         "version": "v1.0.5"
     },
@@ -94,6 +112,9 @@
     "nikic/php-parser": {
         "version": "v4.13.0"
     },
+    "php-cs-fixer/diff": {
+        "version": "v2.0.2"
+    },
     "psr/cache": {
         "version": "2.0.0"
     },
@@ -105,6 +126,9 @@
     },
     "psr/log": {
         "version": "2.0.0"
+    },
+    "symfony/amqp-messenger": {
+        "version": "v5.3.7"
     },
     "symfony/cache": {
         "version": "v5.3.8"
@@ -134,6 +158,9 @@
         "version": "v2.4.0"
     },
     "symfony/doctrine-bridge": {
+        "version": "v5.3.8"
+    },
+    "symfony/doctrine-messenger": {
         "version": "v5.3.8"
     },
     "symfony/dotenv": {
@@ -206,6 +233,21 @@
             "ref": "fadbfe33303a76e25cb63401050439aa9b1a9c7f"
         }
     },
+    "symfony/messenger": {
+        "version": "4.3",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "4.3",
+            "ref": "25e3c964d3aee480b3acc3114ffb7940c89edfed"
+        },
+        "files": [
+            "config/packages/messenger.yaml"
+        ]
+    },
+    "symfony/options-resolver": {
+        "version": "v5.3.7"
+    },
     "symfony/polyfill-intl-grapheme": {
         "version": "v1.23.1"
     },
@@ -224,8 +266,14 @@
     "symfony/polyfill-php81": {
         "version": "v1.23.0"
     },
+    "symfony/process": {
+        "version": "v5.3.7"
+    },
     "symfony/proxy-manager-bridge": {
         "version": "v5.3.4"
+    },
+    "symfony/redis-messenger": {
+        "version": "v5.3.8"
     },
     "symfony/routing": {
         "version": "5.3",

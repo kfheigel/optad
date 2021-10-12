@@ -37,14 +37,14 @@ final class OptadHttpClient
 
     /**
      * @param string $urlEnding
-     * @return ResponseInterface
+     *
      * @throws OptadException
      */
     public function request(string $url): ResponseInterface
     {
         try {
             return $this->httpClient->request($this->addMethod(), $this->addUrl($url), $this->addAcceptHeaders());
-        } catch (ClientExceptionInterface | RedirectionExceptionInterface | ServerExceptionInterface | TransportExceptionInterface $e) {
+        } catch (ClientExceptionInterface|RedirectionExceptionInterface|ServerExceptionInterface|TransportExceptionInterface $e) {
             throw new OptadException('Error', 100, $e);
         }
     }
