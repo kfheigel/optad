@@ -12,39 +12,22 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Setting[]    findAll()
  * @method Setting[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class SettingRepository extends ServiceEntityRepository
+class SettingRepository extends ServiceEntityRepository implements SettingRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Setting::class);
     }
 
-    // /**
-    //  * @return Setting[] Returns an array of Setting objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function save(Setting $setting): void
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('s.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $this->_em->persist($setting);
+        $this->_em->flush();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Setting
+    public function update(Setting $setting): void
     {
-        return $this->createQueryBuilder('s')
-            ->andWhere('s.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $this->_em->flush();
+        $this->_em->refresh($setting);
     }
-    */
 }

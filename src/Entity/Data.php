@@ -15,47 +15,67 @@ class Data
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private int $id;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $url;
+    private string $url;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $tag;
+    private string $tag;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $date;
+    private \DateTime $date;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $estimatedRevenue;
+    private float $estimatedRevenue;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $adImpressions;
+    private int $adImpressions;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $adEcpm;
+    private float $adEcpm;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $clicks;
+    private int $clicks;
 
     /**
      * @ORM\Column(type="float")
      */
-    private $adCtr;
+    private float $adCtr;
+
+    public function __construct(
+        string $url,
+        string $tag,
+        \DateTime $date,
+        float $estimatedRevenue,
+        int $adImpressions,
+        float $adEcpm,
+        int $clicks,
+        float $adCtr
+    ) {
+        $this->url = $url;
+        $this->tag = $tag;
+        $this->date = $date;
+        $this->estimatedRevenue = $estimatedRevenue;
+        $this->adImpressions = $adImpressions;
+        $this->adEcpm = $adEcpm;
+        $this->clicks = $clicks;
+        $this->adCtr = $adCtr;
+    }
 
     public function getId(): ?int
     {

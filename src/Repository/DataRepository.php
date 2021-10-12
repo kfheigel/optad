@@ -12,39 +12,21 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Data[]    findAll()
  * @method Data[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class DataRepository extends ServiceEntityRepository
+class DataRepository extends ServiceEntityRepository implements DataRepositoryInterface
 {
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Data::class);
     }
-
-    // /**
-    //  * @return Data[] Returns an array of Data objects
-    //  */
-    /*
-    public function findByExampleField($value)
+    public function save(Data $data): void
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('d.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+        $this->_em->persist($data);
+        $this->_em->flush();
     }
-    */
 
-    /*
-    public function findOneBySomeField($value): ?Data
+    public function update(Data $data): void
     {
-        return $this->createQueryBuilder('d')
-            ->andWhere('d.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
+        $this->_em->flush();
+        $this->_em->refresh($data);
     }
-    */
 }

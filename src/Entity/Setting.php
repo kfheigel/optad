@@ -20,17 +20,24 @@ class Setting
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $currency;
+    private string $currency;
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $periodLength;
+    private int $periodLength;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $groupBy;
+    private string $groupBy;
+
+    public function __construct(string $currency, int $periodLength, string $groupBy)
+    {
+        $this->currency = $currency;
+        $this->periodLength = $periodLength;
+        $this->groupBy = $groupBy;
+    }
 
     public function getId(): ?int
     {
