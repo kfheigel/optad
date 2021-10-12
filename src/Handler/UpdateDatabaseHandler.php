@@ -35,12 +35,13 @@ final class UpdateDatabaseHandler implements CommandHandlerInterface
             $query['settings']['PeriodLength'],
             $query['settings']['groupby']
         );
-        $this->settingRepository->save($setting);
+        if (!$this->settingRepository->exists($setting)) {
+            $this->settingRepository->save($setting);
+        }
     }
 
     private function setData($query): void
     {
-
         foreach ($query['data'] as $entry) {
             $data = new Data(
                 $entry[0],
@@ -52,7 +53,9 @@ final class UpdateDatabaseHandler implements CommandHandlerInterface
                 $entry[6],
                 $entry[7]
             );
-            $this->dataRepository->save($data);
+            if (!$this->dataRepository->exists($data)) {
+                $this->dataRepository->save($data);
+            }
         }
     }
 }

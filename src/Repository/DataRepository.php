@@ -24,9 +24,18 @@ class DataRepository extends ServiceEntityRepository implements DataRepositoryIn
         $this->_em->flush();
     }
 
-    public function update(Data $data): void
+    public function exists(Data $data): bool
     {
-        $this->_em->flush();
-        $this->_em->refresh($data);
+        $dbEntry = $this->findOneBy([
+            'url' => $data->getUrl(),
+            'tag' => $data->getTag(),
+            'date' => $data->getDate(),
+            'estimatedRevenue' => $data->getEstimatedRevenue(),
+            'adImpressions' => $data->getAdImpressions(),
+            'adEcpm' => $data->getAdEcpm(),
+            'clicks' => $data->getClicks(),
+            'adCtr' => $data->getAdCtr(),
+        ]);
+        return !(empty($dbEntry));
     }
 }

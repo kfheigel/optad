@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 class GetOptadInfoQuery
 {
-    public function __construct(private OptadHttpClient $optadHttpClient, private SerializerInterface $serializer)
+    public function __construct(private OptadHttpClient $optadHttpClient)
     {
     }
 

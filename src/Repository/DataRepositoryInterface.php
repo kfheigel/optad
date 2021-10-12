@@ -8,5 +8,6 @@ interface DataRepositoryInterface
 {
     public function save(Data $data): void;
 
-    public function update(Data $data): void;
+    public function exists(Data $data): bool;
+
 }

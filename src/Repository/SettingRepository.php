@@ -25,9 +25,13 @@ class SettingRepository extends ServiceEntityRepository implements SettingReposi
         $this->_em->flush();
     }
 
-    public function update(Setting $setting): void
+    public function exists(Setting $setting): bool
     {
-        $this->_em->flush();
-        $this->_em->refresh($setting);
+        $dbEntry = $this->findOneBy([
+            'currency' => $setting->getCurrency(),
+            'periodLength' => $setting->getPeriodLength(),
+            'groupBy' => $setting->getGroupBy(),
+        ]);
+        return !(empty($dbEntry));
     }
 }
