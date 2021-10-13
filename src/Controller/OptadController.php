@@ -16,7 +16,7 @@ class OptadController extends AbstractController
     public function index(GetOptadDatabaseInfoQuery $query): JsonResponse
     {
         $data = $query();
-        dump($data);
+//        dump(($data));
 
         return new JsonResponse(
             $data,

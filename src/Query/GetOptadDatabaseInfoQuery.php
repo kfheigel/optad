@@ -21,11 +21,41 @@ final class GetOptadDatabaseInfoQuery
         $setting = $this->settingRepository->findAll();
         $data = $this->dataRepository->findAll();
 
-        $dataArray['settings'] = $setting[0];
-        $dataArray['data'] = $data;
-        dump($dataArray);
+        $dataArray['settings'] = $this->settingArrayConvert($setting);
+        $dataArray['data'] = $this->dataArrayConvert($data);
+
         return $dataArray;
+    }
 
+    private function settingArrayConvert($settingArray)
+    {
+        $convertedSetting = [];
+        $convertedSettings = [];
+        foreach ($settingArray as $setting) {
+            $convertedSetting['currency'] = $setting->getCurrency();
+            $convertedSetting['PeriodLength'] = $setting->getPeriodLength();
+            $convertedSetting['groupby'] = $setting->getGroupBy();
+            $convertedSettings[] = $convertedSetting;
+        }
+        return $convertedSettings;
+    }
 
+    private function dataArrayConvert($dataArray)
+    {
+        $convertedData = [];
+        $convertedDatas = [];
+        foreach ($dataArray as $data) {
+            $convertedData['url'] = $data->getUrl();
+            $convertedData['tag'] = $data->getTag();
+            $convertedData['date'] = $data->getDate()->format('Y-m-d');
+            $convertedData['estimatedRevenue'] = $data->getEstimatedRevenue();
+            $convertedData['adImpressions'] = $data->getAdImpressions();
+            $convertedData['adEcpm'] = $data->getAdEcpm();
+            $convertedData['clicks'] = $data->getClicks();
+            $convertedData['adCtr'] = $data->getAdCtr();
+
+            $convertedDatas[] = $convertedData;
+        }
+        return $convertedDatas;
     }
 }
