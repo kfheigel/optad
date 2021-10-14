@@ -15,3 +15,6 @@
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
 .idea
+/docker/app
+/docker/mysql
+/docker/nginx
