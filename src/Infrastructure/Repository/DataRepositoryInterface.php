@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Repository;
 
-use App\Entity\Data;
+use App\Infrastructure\Entity\Data;
 
 interface DataRepositoryInterface
 {

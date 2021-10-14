@@ -2,14 +2,14 @@
 
 declare(strict_types=1);
 
-namespace App\Handler;
+namespace App\Aplication\Handler;
 
-use App\Command\UpdateDatabaseCommand;
-use App\Entity\Data;
-use App\Entity\Setting;
-use App\Query\GetOptadInfoQuery;
-use App\Repository\DataRepository;
-use App\Repository\SettingRepository;
+use App\Aplication\Command\UpdateDatabaseCommand;
+use App\Infrastructure\Entity\Data;
+use App\Infrastructure\Entity\Setting;
+use App\Aplication\Query\GetOptadInfoQuery;
+use App\Infrastructure\Repository\DataRepository;
+use App\Infrastructure\Repository\SettingRepository;
 
 final class UpdateDatabaseHandler implements CommandHandlerInterface
 {

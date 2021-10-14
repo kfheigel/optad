@@ -7,7 +7,7 @@ services:
         bind:
             $commandBus: '@command.bus'
     _instanceof:
-        App\Handler\CommandHandlerInterface:
+        App\Aplication\Handler\CommandHandlerInterface:
             tags:
                 - { name: messenger.message_handler }
 
@@ -15,6 +15,6 @@ services:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
-            - '../src/Entity/'
+            - '../src/Infrastructure/Entity/'
             - '../src/Kernel.php'
             - '../src/Tests/'

@@ -2,12 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Query;
+namespace App\Aplication\Query;
 
-use App\Entity\Data;
-use App\Enum\OptadApiUrl;
+use App\Infrastructure\Enum\OptadApiUrl;
 use App\Infrastructure\HttpClient\OptadHttpClient;
-use Symfony\Component\Serializer\SerializerInterface;
 
 class GetOptadInfoQuery
 {

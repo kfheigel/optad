@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Cli\Command;
+namespace App\Presentation\Cli\Command;
 
-use App\Command\UpdateDatabaseCommand;
-use App\Query\GetOptadInfoQuery;
+use App\Aplication\Command\UpdateDatabaseCommand;
+use App\Aplication\Query\GetOptadInfoQuery;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

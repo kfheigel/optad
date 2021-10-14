@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Repository;
+namespace App\Infrastructure\Repository;
 
-use App\Entity\Setting;
+use App\Infrastructure\Entity\Setting;
 
 interface SettingRepositoryInterface
 {

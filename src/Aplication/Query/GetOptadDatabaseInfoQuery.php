@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Query;
+namespace App\Aplication\Query;
 
-use App\Repository\DataRepositoryInterface;
-use App\Repository\SettingRepository;
+use App\Infrastructure\Repository\DataRepositoryInterface;
+use App\Infrastructure\Repository\SettingRepository;
 
 final class GetOptadDatabaseInfoQuery
 {
